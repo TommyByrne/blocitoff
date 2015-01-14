@@ -1,1 +1,15 @@
-@import "bootstrap";
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
+body {
+  background-color: #ECECEC;
+}
+
+.jumbotron {
+  background-color: #D2D7D3;
+  text-align: center;
+}
+
+#bpoints {
+  text-align: center;
+}

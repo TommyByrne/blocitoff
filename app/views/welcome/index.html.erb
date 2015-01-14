@@ -1,2 +1,30 @@
-<h1>Welcome to Blocitoff</h1>
-<p>This is the home page for My Blocitoff App.</p>
+<br/>
+<div class="jumbotron">
+  <h1>Blocitoff</h1>
+  <p>Things to do?  Blocitoff helps organize your busy life into simple to do lists. Start Checking things off Today!</p>
+  <% if current_user %>
+    <p>
+      <p> Make a List Today!</p>
+  <% else %>
+      <%= link_to "Sign In", new_user_session_path, class: 'btn btn-primary' %> or
+      <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary' %>
+    </p>
+  <% end %>
+</div>
+
+<div class="row" id="bpoints">
+  <div class="col-md-4">
+    <h2>Create</h2>
+    <span class= "glyphicon glyphicon-pencil"></span>
+    <p>Make simple todo lists for anything in your life.</p>
+  </div>
+  <div class="col-md-4">
+    <h2>Prioritize</h2>
+    <span class= "glyphicon glyphicon-bell"></span>
+    <p>Set importance and due dates for each item of your list.</p>
+  </div>
+  <div class="col-md-4">
+    <h2>Accomplish</h2>
+    <span class= "glyphicon glyphicon-ok"></span>
+    <p>Finish a task and delete it from your list.</p>
+  </div>
