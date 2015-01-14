@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
   devise_for :users
-root to: 'welcome#index'
+    resources :users, only: [:udate, :show, :index]
+  root to: 'welcome#index'
 
   get 'about' => 'welcome#about'
 
