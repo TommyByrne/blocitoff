@@ -4,7 +4,7 @@
   <p>Things to do?  Blocitoff helps organize your busy life into simple to do lists. Start Checking things off Today!</p>
   <% if current_user %>
     <p>
-      <p> Make a List Today!</p>
+      <%= link_to "New To-do List", new_list_path, class: 'btn btn-success btn-lg' %>
   <% else %>
       <%= link_to "Sign In", new_user_session_path, class: 'btn btn-primary' %> or
       <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary' %>
