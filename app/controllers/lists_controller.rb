@@ -1,12 +1,13 @@
 class ListsController < ApplicationController
- before_action :authenticate_user! #users must be signed in before any lists_controller method
+ before_action :authenticate_user!
+
   def index
     @lists = List.all
   end
 
   def show
     @list = List.find(params[:id])
-      @items = @list.items
+    @items = @list.items
   end
 
   def new
@@ -14,7 +15,7 @@ class ListsController < ApplicationController
   end
 
   def create
-    @list = List.new(params.require(:list).permit(:title))
+    @list = List.new(list_params)
     if @list.save
       flash[:notice] = "List was saved"
       redirect_to @list
@@ -31,6 +32,7 @@ class ListsController < ApplicationController
   def update
     @list = List.find(params[:id])
     if @list.update_attributes(list_params)
+      flash[:notice] = "List was updated."
       redirect_to @list
     else
       flash[:error] = "Error updating List, Please try again."
@@ -40,14 +42,12 @@ class ListsController < ApplicationController
 
   def destroy
     @list = List.find(params[:id])
-    name = @list.title
-
     if @list.destroy
-      flash[:notice] = "\"#{name}\" was deleted successfully."
+      flash[:notice] = "Your list was deleted successfully."
       redirect_to lists_path
     else
       flash[:error] = "There was an error deleting the list."
-      render :show
+      redirect_to @list
     end
   end
 
