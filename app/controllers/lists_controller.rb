@@ -1,18 +1,5 @@
 class ListsController < ApplicationController
- before_action :authenticate_user!
-
-  def index
-    @lists = List.all
-  end
-
-  def show
-    @list = List.find(params[:id])
-    @items = @list.items
-  end
-
-  def new
-    @list = List.new
-  end
+  respond_to :html, :js
 
   def create
     @list = List.new(list_params)
@@ -24,6 +11,22 @@ class ListsController < ApplicationController
       render :new
     end
   end
+
+  def index
+     @lists = List.all
+  end
+
+  def show
+    @list = List.find(params[:id])
+    @items = @list.items
+    @item = Item.new
+  end
+
+  def new
+    @list = List.new
+    authorize @list
+  end
+
 
   def edit
     @list = List.find(params[:id])
