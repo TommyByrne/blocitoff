@@ -16,7 +16,7 @@ class ItemsController < ApplicationController
       flash[:error] = "Error saving item. Please try again."
     end
       respond_with(@item) do |format|
-        format.html { redirect_to @list}
+        format.html { redirect_to []}
       end
   end
 
@@ -30,7 +30,7 @@ class ItemsController < ApplicationController
         flash[:error] = "Item could not be completed successufully. Please try again."
       end
         respond_with(@item) do |format|
-          format.html {redirect_to @list}
+          format.html { redirect_to [@lists, @list_id]}
         end
     end
 
@@ -39,6 +39,6 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name)
+    params.require(:item).permit(:name, :duedate)
   end
 end

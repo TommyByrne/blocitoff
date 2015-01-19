@@ -4,11 +4,12 @@ Rails.application.routes.draw do
     resources :users, only: [:udate, :show, :index]
 
     resources :lists do
-      resources :items
+      resources :items, only: [:new, :create, :destroy]
     end
-  root to: 'welcome#index'
 
-  get 'about' => 'welcome#about'
+    root to: 'welcome#index'
+
+    get 'about' => 'welcome#about'
 
 
 end

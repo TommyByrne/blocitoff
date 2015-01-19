@@ -3,6 +3,7 @@ class ListsController < ApplicationController
 
   def create
     @list = List.new(list_params)
+    authorize @list
     if @list.save
       flash[:notice] = "List was saved"
       redirect_to @list
@@ -14,12 +15,13 @@ class ListsController < ApplicationController
 
   def index
      @lists = List.all
-  end
+   end
 
   def show
     @list = List.find(params[:id])
+    authorize @list
     @items = @list.items
-    @item = Item.new
+    # @item = Item.new
   end
 
   def new
