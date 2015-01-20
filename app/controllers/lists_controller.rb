@@ -2,7 +2,7 @@ class ListsController < ApplicationController
   respond_to :html, :js
 
   def create
-    @list = List.new(list_params)
+    @list = current_user.list.new(list_params) #Wouldn't need authorize if i have current user create it?
     authorize @list
     if @list.save
       flash[:notice] = "List was saved"
@@ -14,7 +14,7 @@ class ListsController < ApplicationController
   end
 
   def index
-     @lists = List.all
+     @lists = current_user.list.all #is this the correct way to dispaly all ?
    end
 
   def show

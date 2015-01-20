@@ -1,7 +1,7 @@
-<tr>
-    <% if item.name!=nil %> <!-- Always had one extra check mark -->
+<tr class="media" id="item-<%= item.id %>">
+  <% if item.name!=nil %> <!-- Always had one extra check mark -->
   <td><%= link_to "", [item.list, item], method: :delete, remote: true, class: 'glyphicon glyphicon-ok' %></td>
-    <% end %>
+  <% end %>
   <td><h3><%= item.name %></h3></td>
-  <td><h3><%= item.duedate %></h3></td>
+  <td><h3><%= item.days_left   %></h3></td>
 </tr>
