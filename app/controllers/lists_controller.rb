@@ -14,8 +14,13 @@ class ListsController < ApplicationController
   end
 
   def index
-     @lists = current_user.list.all #is this the correct way to dispaly all ?
-   end
+    if current_user
+      @lists = current_user.list.all #is this the correct way to dispaly all ?
+    else
+      flash[:error] = "Make sure you are signed in and create a new list"
+      redirect_to root_path
+    end
+  end
 
   def show
     @list = List.find(params[:id])

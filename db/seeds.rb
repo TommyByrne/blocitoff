@@ -25,7 +25,8 @@ lists = List.all
 150.times do
   Item.create!(
     list: lists.sample,
-    name: Faker::Lorem.sentence
+    name: Faker::Lorem.sentence,
+    duedate: Faker::Date.forward(39)
     )
 end
 

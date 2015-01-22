@@ -3,12 +3,9 @@ class ItemsController < ApplicationController
 
   def create
     @list = List.find(params[:list_id])
-    @item = Item.new(item_params)
+    @item = current_user.items.build(item_params)
     @item.list = @list
     @new_item = Item.new
-
-    # @items = @list.items
-    # @item = @list.items.build(item_params)
 
     if @item.save
       flash[:notice]= "Item was saved."
@@ -16,7 +13,7 @@ class ItemsController < ApplicationController
       flash[:error] = "Error saving item. Please try again."
     end
     respond_with(@item) do |format|
-      format.html { redirect_to }
+      format.html { redirect_to @list }
     end
   end
 
@@ -34,9 +31,7 @@ class ItemsController < ApplicationController
     end
   end
 
-
-
-  private
+private
 
   def item_params
     params.require(:item).permit(:name, :duedate)

@@ -1,0 +1,14 @@
+<br/>
+<div class= "row">
+  <div class= "col-md-8">
+    <div class="media">
+      <div class="media-body">
+        <h2 class="media-heading"> <%= @user.name %></h2>
+        <small>
+          <%= pluralize(@user.list.count, 'List') %>
+          <%= pluralize(@user.items.count, 'To-do')%>
+        </small>
+      </div>
+    </div>
+  </div>
+</div>

@@ -9,4 +9,7 @@ class Item < ActiveRecord::Base
   def days_left
     (duedate.to_date- DateTime.now.to_date).to_i
   end
+
+  def due_soon
+  end
 end
