@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users
-    resources :users, only: [:udate, :show, :index]
+    resources :users, only: [:update, :show, :index]
 
     resources :lists do
       resources :items, only: [:new, :create, :destroy]

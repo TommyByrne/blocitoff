@@ -4,11 +4,34 @@
     <div class="media">
       <div class="media-body">
         <h2 class="media-heading"> <%= @user.name %></h2>
+        <h3> User Score: <%= (@user.items.only_deleted.count-@user.items.count) %></h3>
+        <p>User score helps show productivity: <br/>
+         Based on How many To-do's completed - How many To-do's Left to complete.</p>
         <small>
           <%= pluralize(@user.list.count, 'List') %>
           <%= pluralize(@user.items.count, 'To-do')%>
         </small>
       </div>
     </div>
+  </div>
+</div>
+<div class="row">
+  <div class="tabbable tabs-left">
+   <ul class="nav nav-tabs">
+     <li class="active"><a href="#lists" data-toggle="tab">Lists</a></li>
+     <li><a href="#items" data-toggle="tab">To-Do's</a></li>
+   </ul>
+   <div class="tab-content">
+    <div class="tab-pane active" id="lists">
+      <% @list.each do |list| %>
+        <h3><%= link_to list.title, list %></h3>
+      <% end %>
+    </div>
+    <div class="tab-pane" id="items">
+      <% @items.each do |item| %>
+        <h3><%= item.name %> <small><%= item.days_left %> days left</small></h3>
+      <% end %>
+    </div>
+  </div>
   </div>
 </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150121194645) do
+ActiveRecord::Schema.define(version: 20150122050217) do
 
   create_table "items", force: true do |t|
     t.string   "name"
@@ -20,8 +20,10 @@ ActiveRecord::Schema.define(version: 20150121194645) do
     t.datetime "updated_at"
     t.datetime "duedate"
     t.integer  "user_id"
+    t.datetime "deleted_at"
   end
 
+  add_index "items", ["deleted_at"], name: "index_items_on_deleted_at"
   add_index "items", ["list_id"], name: "index_items_on_list_id"
   add_index "items", ["user_id"], name: "index_items_on_user_id"
 

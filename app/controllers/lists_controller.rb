@@ -2,7 +2,7 @@ class ListsController < ApplicationController
   respond_to :html, :js
 
   def create
-    @list = current_user.list.new(list_params) #Wouldn't need authorize if i have current user create it?
+    @list = current_user.list.build(list_params) #Wouldn't need authorize if i have current user create it?
     authorize @list
     if @list.save
       flash[:notice] = "List was saved"

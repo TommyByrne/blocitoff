@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, except: [:show]
+  before_action :authenticate_user!
 
   def index
     @users = User.all
@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    if current_user.updte_attributes(user_params)
+    if current_user.update_attributes(user_params)
       flash[:notice] = "User information updated"
       redirect_to edit_user_registration_path
     else

@@ -12,10 +12,6 @@
       <th><h3>Task To-Do</h3></th>
       <th><h3>Days Left</h3></th>
     </tr>
-  <div class="js-items">
     <%= render @items %>
-  </div>
 </table>
-  <div class="new-item">
     <%= render partial: 'items/form', locals: {list: @list} %>
-  </div>

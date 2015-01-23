@@ -1,5 +1,9 @@
 class ItemsController < ApplicationController
 
+  def index
+    @item = current_user.item.all
+  end
+
 
   def create
     @list = List.find(params[:list_id])
@@ -9,11 +13,10 @@ class ItemsController < ApplicationController
 
     if @item.save
       flash[:notice]= "Item was saved."
+      redirect_to @list
     else
       flash[:error] = "Error saving item. Please try again."
-    end
-    respond_with(@item) do |format|
-      format.html { redirect_to @list }
+      redirect_to @list
     end
   end
 
@@ -23,11 +26,10 @@ class ItemsController < ApplicationController
 
     if @item.destroy
       flash[:notice] = "Item was completed"
+      redirect_to @list
     else
       flash[:error] = "Item could not be completed successufully. Please try again."
-    end
-    respond_with(@item) do |format|
-      format.html { redirect_to @list }
+      redirect_to @list
     end
   end
 
