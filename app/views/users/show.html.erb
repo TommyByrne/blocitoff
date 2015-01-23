@@ -4,7 +4,7 @@
     <div class="media">
       <div class="media-body">
         <h2 class="media-heading"> <%= @user.name %></h2>
-        <h3> User Score: <%= (@user.items.only_deleted.count-@user.items.count) %></h3>
+        <h3> User Score: <%= @user.score %></h3>
         <p>User score helps show productivity: <br/>
          Based on How many To-do's completed - How many To-do's Left to complete.</p>
         <small>

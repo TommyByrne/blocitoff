@@ -6,4 +6,12 @@ class User < ActiveRecord::Base
 
   has_many :list
   has_many :items
+
+  def items_due_soon
+    items.due_soon
+  end
+
+  def score
+    items.only_deleted.count - items.count
+  end
 end

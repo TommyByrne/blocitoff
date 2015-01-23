@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @list = @user.list
-    @items = @user.items
+    @items = @user.items.sort_by(&:duedate)
   end
 
   def update
