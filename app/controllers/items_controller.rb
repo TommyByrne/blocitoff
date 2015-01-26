@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  respond_to :html, :js
 
   def index
     @item = current_user.item.all
@@ -41,14 +42,16 @@ class ItemsController < ApplicationController
   def destroy
     @list = List.find(params[:list_id])
     @item = @list.items.find(params[:id])
+    authorize @item
 
     if @item.destroy
       flash[:notice] = "Item was completed"
-      redirect_to @list
     else
       flash[:error] = "Item could not be completed successufully. Please try again."
-      redirect_to @list
     end
+      redirect_with(@item) do |format|
+        format.html { redirect_to [@list] }
+      end
   end
 
 private

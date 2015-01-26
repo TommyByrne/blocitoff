@@ -1,6 +1,6 @@
 <tr class="media" id="item-<%= item.id %>" >
   <% if item.name!=nil %> <!-- Always had one extra check mark -->
-    <td><%= link_to [item.list, item], method: :delete do %>
+    <td><%= link_to [item.list, item], method: :delete, remote: true do %>
       <i class="fa fa-check-square-o fa-2x"></i>
     <% end %>
     </td>
