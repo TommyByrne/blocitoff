@@ -1,7 +1,11 @@
 <tr class="media" id="item-<%= item.id %>">
   <% if item.name!=nil %> <!-- Always had one extra check mark -->
-  <td><%= link_to "", [item.list, item], method: :delete, class: 'glyphicon glyphicon-ok' %></td>
+    <td><%= link_to [item.list, item], method: :delete do %>
+      <i class="fa fa-check-square-o fa-2x"></i>
+    <% end %>
+    </td>
   <% end %>
-  <td><h3><%= item.name %></h3></td>
-  <td><h3><%= item.days_left %></h3></td>
+    <td><h3><%= item.name %></h3></td>
+    <td><h3><%= item.days_left %></h3></td>
+    <td><h3><%= link_to "Edit", edit_list_item_path(@list, item) %></h3></td>
 </tr>

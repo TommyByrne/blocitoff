@@ -37,3 +37,4 @@ gem 'devise'
 gem 'figaro'
 gem 'pundit'
 gem 'paranoia', '~> 2.0.4'
+gem 'whenever', :require => false

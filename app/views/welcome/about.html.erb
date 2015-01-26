@@ -1,10 +1,14 @@
 <div class="jumbotron" id="about">
   <h1>THINGS TO DO?</h1>
-    <h3>
+    <p class= "lead" >
       Blocitoff is here to help you! Create custom to-do lists,
       add individual tasks with due dates, mark completed with auto delte, and If things get
       busy, email friendly reminders of tasks due soon. Also help track productivity with a
       user score based on tasks to-do vs tasks completed. Get things done Today.
-    </h3>
-    <%= link_to "Sign Up NOW", new_user_registration_path, class: 'btn btn-primary btn-lg' %>
+    </p>
+    <% if current_user %>
+      <%= link_to "Creat a List", new_list_path, class: 'btn btn-primary btn-lg' %>
+    <% else %>
+      <%= link_to "Sign Up NOW", new_user_registration_path, class: 'btn btn-primary btn-lg' %>
+    <% end %>
 </div>

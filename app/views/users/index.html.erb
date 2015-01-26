@@ -1,2 +1,17 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<table class="table">
+  <caption>
+    <h1>Productive Users </h1>
+    <p class= "lead">
+      See where you rank among fellow Blocitoff users.  The only way to reach the top is to start completing To-do's Today!
+    </p>
+     </caption>
+  <br/>
+
+  <tr>
+    <th><h3>Rank</h3></th>
+    <th><h3>User</h3></th>
+    <th><h3>Score</h3></th>
+  </tr>
+
+     <%= render partial: 'users/user', collection: @users %>
+</table>

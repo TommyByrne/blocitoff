@@ -1,15 +1,13 @@
 Rails.application.routes.draw do
 
   devise_for :users
-    resources :users, only: [:update, :show, :index]
+    resources :users, only: [:update, :show, :index, :edit]
 
     resources :lists do
-      resources :items, only: [:new, :create, :destroy]
+      resources :items
     end
 
     root to: 'welcome#index'
 
     get 'about' => 'welcome#about'
-
-
 end

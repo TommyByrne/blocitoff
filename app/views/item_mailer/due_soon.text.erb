@@ -1,0 +1,15 @@
+<%= @user.name %>
+
+You have some To-do's Due Soon:
+
+ To-do            Days Left
+<% @user.items_due_soon.sort_by(&:duedate).each do |item| %>
+
+<%= item.name %>       <%= item.days_left %>
+<% end %>
+
+We hope that you are on track to finish these To-do's on time. But if not feel free to log in and
+edit the Due Date's.  <%=link_to "Blocitoff", root_url  %>
+
+Keep Doing,
+Bloccit Team

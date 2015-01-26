@@ -20,6 +20,24 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+    @list = List.find(params[:list_id])
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    @list = List.find(params[:list_id])
+    @item = Item.find(params[:id])
+
+    if @item.update_attributes(item_params)
+      flash[:notice]= "Item was updated"
+      redirect_to @list
+    else
+      flash[:error] = "Error updating item.  Please try again."
+      render :edit
+    end
+  end
+
   def destroy
     @list = List.find(params[:list_id])
     @item = @list.items.find(params[:id])

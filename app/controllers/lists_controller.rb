@@ -41,6 +41,7 @@ class ListsController < ApplicationController
 
   def update
     @list = List.find(params[:id])
+
     if @list.update_attributes(list_params)
       flash[:notice] = "List was updated."
       redirect_to @list
@@ -52,6 +53,7 @@ class ListsController < ApplicationController
 
   def destroy
     @list = List.find(params[:id])
+
     if @list.destroy
       flash[:notice] = "Your list was deleted successfully."
       redirect_to lists_path

@@ -1,14 +1,42 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
-    <h1>Hi <%= @user.name %></h1>
-    <br/>
-    <h3>You have some To-do's Due Soon:</h3>
-    <p>
+  <div class= "row" >
+    <div class= "col-md-8" >
+      <div class= "container" >
+      <h1><%= @user.name %>,</h1>
+      <h3>You have some To-do's Due Soon:</h3>
 
-    </p>
+        <table class= "mailer table">
+          <tr>
+            <th><h3> To-do </h3></th>
+            <th><h3> Days Left </h3></th>
+          </tr>
+          <% @user.items_due_soon.sort_by(&:duedate).each do |item| %>
+            <tr>
+              <td><h4><%= item.name %></h4></td>
+              <td><h4><%= item.days_left %></h4></td>
+            </tr>
+            <% end %>
+        </table>
+
+        <p class= "lead">
+          We hope that you are on track to finish these To-do's on time. But if not feel free to log in and
+          edit the Due Date's.  <%=link_to "Blocitoff", root_url %>
+        </p>
+        <br/>
+        <p class= "lead">
+          Keep Doing,<br>
+          Bloccit Team
+        </p>
+      </div>
+    </div>
+  </div>
   </body>
 </html>
