@@ -7,7 +7,7 @@
     <div class="form-group">
       <%= f.label :name %>
       <%= f.text_field :name, autofocus: true, class: "form-control" %>
-      <%= f.label :duedate  %>
+      <%= f.label :due  %>
       <%= f. datetime_select :duedate, order: [:month, :day, :year], start_year: Date.today.year, discard_minute: true, discard_hour: true %>
     </div>
     <div class="form-group">

@@ -1,4 +1,4 @@
-<tr class="media" id="item-<%= item.id %>">
+<tr class="media" id="item-<%= item.id %>" >
   <% if item.name!=nil %> <!-- Always had one extra check mark -->
     <td><%= link_to [item.list, item], method: :delete do %>
       <i class="fa fa-check-square-o fa-2x"></i>

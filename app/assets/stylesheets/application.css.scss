@@ -5,6 +5,17 @@ body {
   background-color: #ECECEC;
 }
 
+select {
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  width: 120px;
+  border-radius: 3px;
+  overflow: hidden;
+  background-color: #fff;
+  font-size: 14pt;
+}
+
 .user-info{
   margin-top: 9px;
 }

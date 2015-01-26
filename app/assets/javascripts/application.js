@@ -15,7 +15,3 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
-
-$("tr[data-link]").click(function() {
-  window.location = this.data("link")
-})
