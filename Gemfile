@@ -5,6 +5,7 @@ gem 'rails', '4.1.8'
 group :production do
   gem 'pg'
   gem 'rails_12factor'
+  gem 'unicorn'
 end
 
 group :development do
@@ -39,3 +40,4 @@ gem 'pundit'
 gem 'paranoia', '~> 2.0.4'
 gem 'whenever', :require => false
 gem 'newrelic_rpm'
+gem 'rack-timeout'
