@@ -14,4 +14,8 @@ class User < ActiveRecord::Base
   def score
     items.only_deleted.count - items.count
   end
+
+  def self.by_score
+    all.sort_by { |user| user.score }.reverse
+  end
 end

@@ -7,7 +7,7 @@ namespace :todo do
     desc "Email Tasks due soon"
   task email_due_soon: :environment do
     User.all.each do |user|
-        if user.items.due_soon.count != 0
+        if user.items.due_soon.count > 0
           ItemMailer.due_soon(user).deliver
         end
       end

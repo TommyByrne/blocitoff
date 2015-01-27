@@ -50,7 +50,7 @@ class ItemsController < ApplicationController
       flash[:error] = "Item could not be completed successufully. Please try again."
     end
       redirect_with(@item) do |format|
-        format.html { redirect_to [@list] }
+        format.html { redirect_to @list }
       end
   end
 

@@ -1,10 +1,8 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
 
-
-
   def index
-    @users = User.all.sort_by { |user| user.score }.reverse
+    @users = User.by_score
   end
 
   def show
