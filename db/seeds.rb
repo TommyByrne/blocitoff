@@ -11,6 +11,15 @@ require 'faker'
   user.skip_confirmation!
   user.save!
 end
+
+user = User.new(
+name:   "Mr. Person",
+email:  "person@example.com",
+password: "password"
+)
+user.skip_confirmation!
+user.save!
+
 users = User.all
 
 # Create Lists
