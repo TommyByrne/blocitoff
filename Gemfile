@@ -40,4 +40,3 @@ gem 'pundit'
 gem 'paranoia', '~> 2.0.4'
 gem 'whenever', :require => false
 gem 'newrelic_rpm'
-gem 'rack-timeout'

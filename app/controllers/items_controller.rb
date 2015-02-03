@@ -49,12 +49,12 @@ class ItemsController < ApplicationController
     else
       flash[:error] = "Item could not be completed successufully. Please try again."
     end
-      redirect_with(@item) do |format|
+      respond_with(@item) do |format|
         format.html { redirect_to @list }
       end
   end
 
-private
+  private
 
   def item_params
     params.require(:item).permit(:name, :duedate)
